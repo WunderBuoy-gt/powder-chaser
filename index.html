@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Powder Chaser</title>
+<meta name="description" content="Storm tracking and powder-day forecasts for ski resorts worldwide.">
+<meta name="theme-color" content="#111c25">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Powder">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Powder<span>Chaser</span></div>
+    <nav class="tabs" aria-label="Views">
+      <button class="tab" id="tab-dash" data-view="dash">My Mountains</button>
+      <button class="tab" id="tab-watch" data-view="watch">Storm Watch</button>
+    </nav>
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search resorts or any mountain town worldwide" autocomplete="off" aria-label="Search resorts">
+      <div class="results" id="results" hidden></div>
+    </div>
+    <div class="units" role="group" aria-label="Units">
+      <button id="u-imperial" data-units="imperial">in · °F</button>
+      <button id="u-metric" data-units="metric">cm · °C</button>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="banner" id="banner" hidden></div>
+  <main id="view" aria-live="polite"></main>
+  <footer>
+    Forecast data: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (CC BY 4.0), requested at each resort's mid-mountain elevation.
+    Snow totals use a temperature-based snow-to-liquid ratio. Always check the resort's own snow report and avalanche forecast before you go.
+  </footer>
+</div>
+<script src="resorts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
