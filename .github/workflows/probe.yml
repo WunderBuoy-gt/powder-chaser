@@ -1,0 +1,36 @@
+name: probe
+on: { push: { branches: [signal-feed-probe] } }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          cat > p.mjs <<'JS'
+          const UAS = { bot: 'Mozilla/5.0 (compatible; SignalDesignBrief/1.0; +https://github.com/)',
+            browser: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' };
+          const urls = `https://www.itsnicethat.com/rss https://www.itsnicethat.com/feed https://www.itsnicethat.com/rss.xml https://www.itsnicethat.com/articles.rss
+          https://www.adsoftheworld.com/feed https://www.adsoftheworld.com/rss https://www.adsoftheworld.com/feed.xml https://www.adsoftheworld.com/rss.xml https://www.adsoftheworld.com/campaigns.rss
+          https://eyeondesign.aiga.org/feed/ https://eyeondesign.aiga.org/rss/ https://eyeondesign.aiga.org/feed https://www.aiga.org/rss https://eyeondesign.aiga.org/rss.xml
+          https://www.underconsideration.com/brandnew/index.xml https://www.underconsideration.com/brandnew/feed/ https://www.underconsideration.com/brandnew/atom.xml https://feeds.feedburner.com/brandnew_valid https://www.underconsideration.com/brandnew/index.rdf
+          https://tympanus.net/codrops/feed/ https://www.creativereview.co.uk/feed/ https://www.designweek.co.uk/feed/ https://lbbonline.com/news/rss https://www.lbbonline.com/news/rss https://www.thedrum.com/rss.xml https://www.thedrum.com/feeds/news.xml
+          https://fontsinuse.com/rss https://fontsinuse.com/feed https://fontsinuse.com/uses.rss https://fontsinuse.com/rss.xml https://fontsinuse.com/uses/rss
+          https://frameweb.com/rss https://frameweb.com/feed https://frameweb.com/rss.xml https://frameweb.com/article/rss
+          https://hypebeast.com/feed https://hypebeast.com/feed/ https://hypebeast.com/design/feed
+          https://www.psfk.com/feed https://www.psfk.com/feed/ https://www.psfk.com/rss https://www.psfk.com/feed/rss
+          https://the-brandidentity.com/feed https://the-brandidentity.com/rss.xml https://the-brandidentity.com/feed/ https://the-brandidentity.com/rss https://the-brandidentity.com/feed.xml
+          https://www.campaignbrief.com/feed/ https://www.creativebrief.com/feed https://www.contagious.com/feed https://www.thedieline.com/blog?format=rss https://thedieline.com/feed/ https://www.experiencedesignawards.com/feed https://www.adforum.com/rss https://www.shots.net/rss https://www.dexigner.com/news/feed https://www.packagingoftheworld.com/feeds/posts/default https://www.yankodesign.com/feed/ https://www.creativeapplications.net/feed/ https://www.itsnicethat.com/news/rss https://www.lbbonline.com/rss`.split(/\s+/).filter(Boolean);
+          for (const u of urls) for (const [k, ua] of Object.entries(UAS)) {
+            try {
+              const r = await fetch(u, { headers: { 'user-agent': ua, accept: 'application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.9, */*;q=0.8', 'accept-language': 'en-US,en;q=0.9' }, signal: AbortSignal.timeout(15000) });
+              const t = await r.text();
+              const feed = /<(rss|feed|rdf:RDF)[\s>]/i.test(t);
+              const dates = [...t.matchAll(/<(pubDate|published|updated|dc:date)>([^<]+)</g)].map(m => Date.parse(m[2])).filter(Boolean);
+              const newest = dates.length ? new Date(Math.max(...dates)).toISOString().slice(0, 10) : '-';
+              const n = (t.match(/<item[\s>]|<entry[\s>]/g) || []).length;
+              console.log(`${r.status} ${k.padEnd(7)} feed=${feed} items=${n} newest=${newest} ${u}`);
+            } catch (e) { console.log(`ERR ${k.padEnd(7)} ${e.name} ${u}`); }
+          }
+          JS
+          node p.mjs
