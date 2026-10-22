@@ -1,0 +1,47 @@
+name: Signal feed
+
+# Rebuilds signal/data/feed.json from the sources in signal/sources.json and commits it,
+# so the static site always has fresh stories. Runs four times a day; can also be run by hand.
+on:
+  schedule:
+    - cron: '17 4,10,16,22 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'signal/sources.json'
+      - 'signal/scripts/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: signal-feed
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect feeds
+        run: node signal/scripts/build-feed.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "signal-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add signal/data/feed.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Signal: refresh feed"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
