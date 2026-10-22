@@ -25,3 +25,7 @@ Commercial use needs an Open-Meteo API plan.
 ## Tuning
 
 The thresholds are at the top of `app.js`: `STORM_INCOMING_CM` (default 15 cm, about 6") and `STORM_INCOMING_HOURS` (72).
+
+## Also in this repo: Signal
+
+`signal/` is a separate app: a daily briefing on experiential marketing, graphic design, brand and content for creative directors. See [signal/README.md](signal/README.md).
