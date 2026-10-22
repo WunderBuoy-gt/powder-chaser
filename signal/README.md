@@ -15,18 +15,19 @@ Reading progress, saved stories, notes, streak and theme are stored in your brow
 
 ## How the data works
 
-`scripts/build-feed.mjs` (Node 20+, no dependencies) reads the RSS/Atom feeds in `sources.json` (about 45 publications, including Event Marketer, BizBash, PSFK, Brand New, It's Nice That, AIGA Eye on Design, Creative Review, Muse by Clio, Ads of the World, Dezeen, designboom, Motionographer, Colossal and Digiday).
+`scripts/build-feed.mjs` (Node 20+, no dependencies) reads the RSS/Atom feeds in `sources.json` (34 publications, including Event Marketer, BizBash, It's Nice That, The Dieline, Creative Boom, Muse by Clio, Campaign Brief, Adweek, Dezeen, designboom, Wallpaper*, Motionographer, Colossal, Hypebeast and Digiday).
+Some favourites (Creative Review, The Drum, LBB, PSFK, Brand New, AIGA Eye on Design) either block automated readers or have no working feed; they're linked under Level up instead.
+Feeds whose newest story is over 120 days old are treated as dead, so the next URL in the list is tried.
 For each story it finds the best thumbnail (media tags, then images in the post, then the article's `og:image`), tags it by discipline, and computes trends.
 Output goes to `data/feed.json`, which keeps 21 days of history so trends can compare.
 
 The workflow `.github/workflows/signal-feed.yml` runs that script four times a day and commits the result.
 
-## Put it online (GitHub Pages)
+## Where it lives
 
-1. Merge this into `main`.
-2. Repo **Settings → Pages**: deploy from branch `main`, folder `/ (root)`.
-3. **Actions → Signal feed → Run workflow** to build the first feed.
-4. Open `https://<your-username>.github.io/powder-chaser/signal/`. On a phone, use **Add to Home Screen**.
+Pages is already enabled for this repo (deploying `main` from the root), and the feed refreshes on its own. To force a refresh, use **Actions → Signal feed → Run workflow**.
+
+Open https://wunderbuoy-gt.github.io/powder-chaser/signal/. On a phone, use **Add to Home Screen**.
 
 ## Run it locally
 

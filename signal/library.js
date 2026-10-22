@@ -160,6 +160,15 @@ window.SIGNAL_LIBRARY = {
       ['TDC', 'https://www.tdc.org', 'Type Directors Club competitions for typography and lettering.'],
       ['Webby Awards', 'https://www.webbyawards.com', 'Digital, social and video work.'],
     ]},
+    { group: 'Worth a direct visit (no feed available)', items: [
+      ['PSFK', 'https://www.psfk.com', 'Retail and experience innovation research.'],
+      ['LBB Online', 'https://lbbonline.com', 'Production and craft news from agencies and studios worldwide.'],
+      ['The Drum', 'https://www.thedrum.com', 'Marketing news, opinion and the World Creative Rankings.'],
+      ['Ads of the World', 'https://www.adsoftheworld.com', 'A huge, searchable archive of campaigns.'],
+      ['Design Week', 'https://www.designweek.co.uk', 'UK design industry news and projects.'],
+      ['The Brand Identity', 'https://the-brandidentity.com', 'Beautifully curated identity and graphic work.'],
+      ['Frame', 'https://frameweb.com', 'Interiors, retail and experiential spaces.'],
+    ]},
     { group: 'Archives & inspiration', items: [
       ['Fonts In Use', 'https://fontsinuse.com', 'A searchable archive of typography in the wild.'],
       ['Art of the Title', 'https://www.artofthetitle.com', 'Title sequence design for film and TV.'],

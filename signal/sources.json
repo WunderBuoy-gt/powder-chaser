@@ -16,29 +16,20 @@
   "sources": [
     { "name": "Event Marketer", "site": "https://www.eventmarketer.com", "category": "experiential", "weight": 1.4, "feeds": ["https://www.eventmarketer.com/feed/"] },
     { "name": "BizBash", "site": "https://www.bizbash.com", "category": "experiential", "weight": 1.3, "feeds": ["https://www.bizbash.com/rss.xml", "https://www.bizbash.com/rss"] },
-    { "name": "PSFK", "site": "https://www.psfk.com", "category": "experiential", "weight": 1.1, "feeds": ["https://www.psfk.com/feed"] },
     { "name": "Trend Hunter", "site": "https://www.trendhunter.com", "category": "experiential", "weight": 0.8, "feeds": ["https://www.trendhunter.com/rss"] },
-    { "name": "Experiential Marketing", "site": "https://www.experientialmarketing.org", "category": "experiential", "weight": 1.0, "feeds": ["https://www.experientialmarketing.org/feed/"] },
 
-    { "name": "Brand New", "site": "https://www.underconsideration.com/brandnew/", "category": "brand", "weight": 1.4, "feeds": ["https://www.underconsideration.com/brandnew/index.xml", "https://www.underconsideration.com/brandnew/feed/"] },
     { "name": "BP&O", "site": "https://bpando.org", "category": "brand", "weight": 1.2, "feeds": ["https://bpando.org/feed/"] },
-    { "name": "The Brand Identity", "site": "https://the-brandidentity.com", "category": "brand", "weight": 1.3, "feeds": ["https://the-brandidentity.com/feed", "https://the-brandidentity.com/rss.xml"] },
-    { "name": "Design Week", "site": "https://www.designweek.co.uk", "category": "brand", "weight": 1.1, "feeds": ["https://www.designweek.co.uk/feed/"] },
-    { "name": "Creative Review", "site": "https://www.creativereview.co.uk", "category": "brand", "weight": 1.3, "feeds": ["https://www.creativereview.co.uk/feed/"] },
 
-    { "name": "It's Nice That", "site": "https://www.itsnicethat.com", "category": "graphic", "weight": 1.4, "feeds": ["https://feeds2.feedburner.com/itsnicethat", "https://www.itsnicethat.com/rss"] },
-    { "name": "AIGA Eye on Design", "site": "https://eyeondesign.aiga.org", "category": "graphic", "weight": 1.3, "feeds": ["https://eyeondesign.aiga.org/feed/"] },
+    { "name": "The Dieline", "site": "https://thedieline.com", "category": "brand", "weight": 1.2, "feeds": ["https://thedieline.com/feed/"] },
+    { "name": "It's Nice That", "site": "https://www.itsnicethat.com", "category": "graphic", "weight": 1.4, "feeds": ["https://www.itsnicethat.com/articles.rss"] },
     { "name": "Creative Boom", "site": "https://www.creativeboom.com", "category": "graphic", "weight": 1.1, "feeds": ["https://www.creativeboom.com/feed/"] },
     { "name": "Abduzeedo", "site": "https://abduzeedo.com", "category": "graphic", "weight": 1.0, "feeds": ["https://abduzeedo.com/rss.xml", "https://feeds.feedburner.com/abduzeedo"] },
     { "name": "Creative Bloq", "site": "https://www.creativebloq.com", "category": "graphic", "weight": 0.8, "feeds": ["https://www.creativebloq.com/feeds/all", "https://www.creativebloq.com/feeds.xml"] },
 
-    { "name": "Fonts In Use", "site": "https://fontsinuse.com", "category": "type", "weight": 1.2, "feeds": ["https://fontsinuse.com/rss", "https://fontsinuse.com/feed"] },
     { "name": "I Love Typography", "site": "https://ilovetypography.com", "category": "type", "weight": 1.1, "feeds": ["https://ilovetypography.com/feed/"] },
 
-    { "name": "Ads of the World", "site": "https://www.adsoftheworld.com", "category": "advertising", "weight": 1.2, "feeds": ["https://www.adsoftheworld.com/feed", "https://www.adsoftheworld.com/rss"] },
+    { "name": "Campaign Brief", "site": "https://campaignbrief.com", "category": "advertising", "weight": 1.0, "feeds": ["https://www.campaignbrief.com/feed/"] },
     { "name": "Muse by Clio", "site": "https://musebyclios.com", "category": "advertising", "weight": 1.3, "feeds": ["https://musebyclios.com/feed/"] },
-    { "name": "LBB Online", "site": "https://lbbonline.com", "category": "advertising", "weight": 1.1, "feeds": ["https://lbbonline.com/news/rss", "https://www.lbbonline.com/news/rss"] },
-    { "name": "The Drum", "site": "https://www.thedrum.com", "category": "advertising", "weight": 1.0, "feeds": ["https://www.thedrum.com/rss.xml"] },
     { "name": "Adweek", "site": "https://www.adweek.com", "category": "advertising", "weight": 1.0, "feeds": ["https://www.adweek.com/feed/"] },
     { "name": "Campaign", "site": "https://www.campaignlive.com", "category": "advertising", "weight": 0.9, "feeds": ["https://www.campaignlive.com/rss/news", "https://www.campaignlive.co.uk/rss/news"] },
 
@@ -52,13 +43,13 @@
     { "name": "Wallpaper*", "site": "https://www.wallpaper.com", "category": "spatial", "weight": 1.1, "feeds": ["https://www.wallpaper.com/rss", "https://www.wallpaper.com/feeds/all"] },
     { "name": "Core77", "site": "https://www.core77.com", "category": "spatial", "weight": 1.0, "feeds": ["https://www.core77.com/blog/rss.xml", "https://feeds.feedburner.com/core77/blog"] },
     { "name": "Design Milk", "site": "https://design-milk.com", "category": "spatial", "weight": 0.9, "feeds": ["https://design-milk.com/feed/"] },
-    { "name": "Frame", "site": "https://frameweb.com", "category": "spatial", "weight": 1.1, "feeds": ["https://frameweb.com/rss", "https://frameweb.com/feed"] },
+
+    { "name": "Yanko Design", "site": "https://www.yankodesign.com", "category": "spatial", "weight": 0.7, "feeds": ["https://www.yankodesign.com/feed/"] },
 
     { "name": "Motionographer", "site": "https://motionographer.com", "category": "motion", "weight": 1.3, "feeds": ["https://motionographer.com/feed/"] },
     { "name": "Stash", "site": "https://www.stashmedia.tv", "category": "motion", "weight": 1.1, "feeds": ["https://www.stashmedia.tv/feed/"] },
     { "name": "Art of the Title", "site": "https://www.artofthetitle.com", "category": "motion", "weight": 1.1, "feeds": ["https://www.artofthetitle.com/feed/", "https://feeds.feedburner.com/artofthetitle"] },
 
-    { "name": "Codrops", "site": "https://tympanus.net/codrops", "category": "digital", "weight": 1.1, "feeds": ["https://tympanus.net/codrops/feed/"] },
     { "name": "Smashing Magazine", "site": "https://www.smashingmagazine.com", "category": "digital", "weight": 0.9, "feeds": ["https://www.smashingmagazine.com/feed/"] },
     { "name": "Sidebar", "site": "https://sidebar.io", "category": "digital", "weight": 0.9, "feeds": ["https://sidebar.io/feed.xml"] },
 
@@ -66,7 +57,7 @@
     { "name": "The Verge", "site": "https://www.theverge.com", "category": "tech", "weight": 0.7, "feeds": ["https://www.theverge.com/rss/index.xml"] },
 
     { "name": "Colossal", "site": "https://www.thisiscolossal.com", "category": "culture", "weight": 1.3, "feeds": ["https://www.thisiscolossal.com/feed/"] },
-    { "name": "Hypebeast", "site": "https://hypebeast.com", "category": "culture", "weight": 0.8, "feeds": ["https://hypebeast.com/feed"] },
+    { "name": "Hypebeast", "site": "https://hypebeast.com", "category": "culture", "weight": 0.8, "feeds": ["https://hypebeast.com/design/feed", "https://hypebeast.com/feed"] },
     { "name": "Juxtapoz", "site": "https://www.juxtapoz.com", "category": "culture", "weight": 0.9, "feeds": ["https://www.juxtapoz.com/news/?format=feed&type=rss"] }
   ]
 }

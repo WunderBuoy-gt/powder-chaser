@@ -15,6 +15,7 @@ const KEEP_DAYS = 21;          // history kept in feed.json
 const MAX_ITEMS = 1200;
 const PER_FEED = 30;           // newest items taken from each feed per run
 const OG_LOOKUPS = 120;        // max article pages fetched per run to find a missing image
+const STALE_DAYS = 120;        // a feed whose newest item is older than this is treated as dead
 const UA = 'Mozilla/5.0 (compatible; SignalDesignBrief/1.0; +https://github.com/)';
 
 // ---------- small utilities ----------
@@ -349,6 +350,9 @@ async function main() {
         if (!/<(rss|feed|rdf:RDF)[\s>]/i.test(text)) throw new Error('not a feed');
         const parsed = parseFeed(text, finalUrl).slice(0, PER_FEED);
         if (!parsed.length) throw new Error('feed had no items');
+        // An abandoned feed URL can still answer; skip it so the next candidate gets a chance.
+        const newest = Math.max(...parsed.map(p => Date.parse(p.published)).filter(Number.isFinite));
+        if (Number.isFinite(newest) && now - newest > STALE_DAYS * 864e5) throw new Error(`stale (newest ${new Date(newest).toISOString().slice(0, 10)})`);
         for (const p of parsed) {
           let t = Date.parse(p.published);
           if (!Number.isFinite(t) || t > now + 36e5) t = now; // missing or future-dated
